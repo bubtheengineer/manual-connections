@@ -127,6 +127,9 @@ echo "
 Address = $(echo "$wireguard_json" | jq -r '.peer_ip')
 PrivateKey = $privKey
 $dnsSettingForVPN
+PostUp=/usr/local/share/pia/manual-connections/up.sh
+PostDown=/usr/local/share/pia/manual-connections/down.sh
+
 [Peer]
 PersistentKeepalive = 25
 PublicKey = $(echo "$wireguard_json" | jq -r '.server_key')
