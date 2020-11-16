@@ -113,8 +113,8 @@ echo
 # This uses a PersistentKeepalive of 25 seconds to keep the NAT active
 # on firewalls. You can remove that line if your network does not
 # require it.
-echo -n "Trying to write /etc/wireguard/pia.conf... "
-mkdir -p /etc/wireguard
+echo -n "Trying to write /usr/local/etc/wireguard/pia.conf... "
+mkdir -p /usr/local/etc/wireguard
 if [ "$PIA_DNS" == true ]; then
   dnsServer="$(echo "$wireguard_json" | jq -r '.dns_servers[0]')"
   echo Trying to set up DNS to $dnsServer. In case you do not have resolvconf,
@@ -135,7 +135,7 @@ PersistentKeepalive = 25
 PublicKey = $(echo "$wireguard_json" | jq -r '.server_key')
 AllowedIPs = 0.0.0.0/0
 Endpoint = ${WG_SERVER_IP}:$(echo "$wireguard_json" | jq -r '.server_port')
-" > /etc/wireguard/pia.conf || exit 1
+" > /usr/local/etc/wireguard/pia.conf || exit 1
 echo OK!
 
 # Start the WireGuard interface.
