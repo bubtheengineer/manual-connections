@@ -35,7 +35,7 @@ printf "\nTrying to bind the port . . . \n"
 
   bind_port_response="$(curl -Gs -m 5 \
     --connect-to "$PF_HOSTNAME::$PF_GATEWAY:" \
-    --cacert "/pia/ca.rsa.4096.crt" \
+    --cacert "/usr/local/share/pia/manual-connections/ca.rsa.4096.crt" \
     --data-urlencode "payload=${payload}" \
     --data-urlencode "signature=${signature}" \
     "https://${PF_HOSTNAME}:19999/bindPort")"
