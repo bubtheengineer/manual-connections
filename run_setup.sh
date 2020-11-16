@@ -38,16 +38,16 @@ fi
 # just so they don't show on github
 # Username on first line, password on second
 declare -a creds # an array
-readarray -t creds </usr/local/etc/openvpn/pass.txt
+readarray -t creds </usr/local/etc/wireguard/pass.txt
 PIA_USER="${creds[0]}"
 PIA_PASS="${creds[1]}"
 echo "Retrieved credentials"
 export PIA_USER
 export PIA_PASS
 
-protocol="udp"
-encryption="standard"
-PIA_AUTOCONNECT="openvpn_${protocol}_${encryption}"
+#protocol="udp"
+#encryption="standard"
+PIA_AUTOCONNECT="wireguard"
 export PIA_AUTOCONNECT
 PIA_DNS="false"
 export PIA_DNS
